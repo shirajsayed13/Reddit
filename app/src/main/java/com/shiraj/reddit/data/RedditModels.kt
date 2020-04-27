@@ -9,7 +9,7 @@ import java.util.ArrayList
 data class RedditNews(
         val after: String?,
         val before: String?,
-        val news: List<RedditNewsItem>) : Parcelable {
+        val news: List<RedditNewsItem>?) : Parcelable {
     companion object {
         @Suppress("unused")
         @JvmField val CREATOR: Parcelable.Creator<RedditNews> = object : Parcelable.Creator<RedditNews> {

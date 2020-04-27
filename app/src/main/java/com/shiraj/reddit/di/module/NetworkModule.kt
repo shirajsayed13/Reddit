@@ -15,7 +15,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("https://www.reddit.com")
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .build()

@@ -3,7 +3,6 @@ package com.shiraj.reddit.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.AlteredCharSequence.make
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +26,7 @@ class NewsFragment : Fragment(), NewsDelegateAdapter.onViewSelectedListener {
 
     override fun onItemSelected(url: String?) {
         if (url.isNullOrEmpty()) {
-            Toast.makeText(context,"isNullOrEmpty", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "isNullOrEmpty", Toast.LENGTH_LONG).show()
         } else {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
@@ -62,15 +61,19 @@ class NewsFragment : Fragment(), NewsDelegateAdapter.onViewSelectedListener {
         when (state) {
             is Resource.Success -> {
                 redditNews = state.redditNews
-                newsAdapter.addNews(state.redditNews.news)
+                state.redditNews.news?.let { newsAdapter.addNews(it) }
             }
             is Resource.Error -> {
-                Toast.makeText(context,"Error Occurred", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Error Occurred", Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return container?.inflate(R.layout.news_fragment)
     }
 

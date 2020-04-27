@@ -27,6 +27,8 @@
         android:textSize="15sp"
         android:textStyle="bold"
         android:typeface="sans"
+        android:lines="3"
+        android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/img_thumbnail"
         app:layout_constraintTop_toTopOf="parent"

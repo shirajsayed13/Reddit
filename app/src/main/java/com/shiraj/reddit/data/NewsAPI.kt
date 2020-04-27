@@ -1,7 +1,7 @@
 package com.shiraj.reddit.data
 
-import kotlinx.coroutines.Deferred
+import retrofit2.Call
 
 interface NewsAPI {
-    fun getNewsApi(after: String, limit: String): Deferred<RedditNewsResponse>
+    fun getNewsApi(after: String, limit: String): Call<RedditNewsResponse>
 }
