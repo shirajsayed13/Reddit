@@ -5,7 +5,7 @@ import android.content.Context
 import com.shiraj.reddit.RedditApplication
 import dagger.Module
 import dagger.Provides
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import javax.inject.Singleton
 import kotlin.coroutines.CoroutineContext
 
@@ -21,5 +21,5 @@ class AppModule(val app: RedditApplication) {
     fun provideApplication(): Application = app
 
     @Provides
-    fun provideCoroutineContext(): CoroutineContext = Dispatchers.Default
+    fun provideCoroutineContext(): CoroutineContext = Dispatchers.Main
 }

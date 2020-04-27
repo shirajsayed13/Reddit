@@ -2,11 +2,14 @@ package com.shiraj.reddit.data
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.shiraj.reddit.ui.AdapterConstants
+import com.shiraj.reddit.ui.ViewType
+import java.util.ArrayList
 
 data class RedditNews(
         val after: String?,
         val before: String?,
-        val news: List<RedditNewsItem>?) : Parcelable {
+        val news: List<RedditNewsItem>) : Parcelable {
     companion object {
         @Suppress("unused")
         @JvmField val CREATOR: Parcelable.Creator<RedditNews> = object : Parcelable.Creator<RedditNews> {
@@ -15,7 +18,9 @@ data class RedditNews(
         }
     }
 
-    constructor(source: Parcel) : this(source.readString(), source.readString(), source.createTypedArrayList(RedditNewsItem.CREATOR))
+    constructor(source: Parcel) : this(source.readString(), source.readString(),
+        source.createTypedArrayList(RedditNewsItem.CREATOR)!!
+    )
 
     override fun describeContents() = 0
 
@@ -34,7 +39,9 @@ data class RedditNewsItem(
         val thumbnail: String?,
         val url: String?,
         val permalink: String?
-) : Parcelable {
+) : ViewType, Parcelable {
+
+    override fun getViewType() = AdapterConstants.NEWS
 
     companion object {
         @JvmField val CREATOR: Parcelable.Creator<RedditNewsItem> = object : Parcelable.Creator<RedditNewsItem> {
