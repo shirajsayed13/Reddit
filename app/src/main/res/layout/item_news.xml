@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,7 +26,6 @@
         android:textColor="#040404"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:typeface="sans"
         android:lines="3"
         android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="This should be a long description like this example that I'm showing." />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,13 +41,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:textColor="#343434"
-        android:textSize="10sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/img_thumbnail"
         app:layout_constraintTop_toBottomOf="@id/description"
-        tools:ignore="SmallSp"
         tools:text="Author 123" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/comments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,10 +54,9 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:textColor="#10bcc9"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="SmallSp"
         tools:text="30012 comments" />
 </androidx.constraintlayout.widget.ConstraintLayout>

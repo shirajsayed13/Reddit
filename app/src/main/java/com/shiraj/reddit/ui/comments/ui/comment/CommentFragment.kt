@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.shiraj.reddit.R
 import com.shiraj.reddit.RedditApplication
 import com.shiraj.reddit.data.comment.RedditComment
-import com.shiraj.reddit.ui.comments.CommentActivity.Companion.KEY_COMMENT_PERMALINK
 import com.shiraj.reddit.util.Resource
 import com.shiraj.reddit.util.ViewModelFactory
 import com.shiraj.reddit.util.extensions.androidLazy
@@ -25,6 +24,14 @@ class CommentFragment : Fragment() {
 
     companion object {
         fun newInstance() = CommentFragment()
+
+        fun newInstance(name: String): CommentFragment {
+            val args = Bundle()
+            args.putString("permalink", name)
+            val fragment = CommentFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 
     private lateinit var viewModel: CommentViewModel
@@ -49,7 +56,7 @@ class CommentFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         RedditApplication.appComponent.inject(this)
         viewModel = ViewModelProviders.of(this).get(CommentViewModel::class.java)
-        viewModel.fetchComments(KEY_COMMENT_PERMALINK)
+        viewModel.fetchComments("/r/news/comments/g94vfg/leader_of_north_carolina_lockdown_protest_group/")
         viewModel.newsState.observe(viewLifecycleOwner, Observer {
             manageState(it)
         })
@@ -69,7 +76,7 @@ class CommentFragment : Fragment() {
         }
     }
 
-    fun init() {
+    private fun init() {
         comment_list.apply {
             setHasFixedSize(true)
             val linearLayout = LinearLayoutManager(context)

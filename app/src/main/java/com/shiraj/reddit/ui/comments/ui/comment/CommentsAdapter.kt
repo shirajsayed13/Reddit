@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shiraj.reddit.R
 import com.shiraj.reddit.data.RedditNewsItem
@@ -40,8 +41,8 @@ class CommentsAdapter :
 
     inner class CommentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItems(commentItem: RedditCommentItem) {
-            val comment = itemView.findViewById(R.id.comment) as TextView
-            val commentAuthor = itemView.findViewById(R.id.commentAuthor) as TextView
+            val comment = itemView.findViewById(R.id.comment) as AppCompatTextView
+            val commentAuthor = itemView.findViewById(R.id.commentAuthor) as AppCompatTextView
             comment.text = commentItem.body
             commentAuthor.text = commentItem.author
         }
