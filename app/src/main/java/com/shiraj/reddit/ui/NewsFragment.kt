@@ -1,7 +1,6 @@
 package com.shiraj.reddit.ui
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.shiraj.reddit.R
 import com.shiraj.reddit.RedditApplication
 import com.shiraj.reddit.data.RedditNews
+import com.shiraj.reddit.ui.comments.CommentActivity
 import com.shiraj.reddit.util.InfiniteScrollListener
 import com.shiraj.reddit.util.Resource
 import com.shiraj.reddit.util.ViewModelFactory
@@ -28,8 +28,8 @@ class NewsFragment : Fragment(), NewsDelegateAdapter.onViewSelectedListener {
         if (url.isNullOrEmpty()) {
             Toast.makeText(context, "isNullOrEmpty", Toast.LENGTH_LONG).show()
         } else {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(url)
+            val intent = Intent(context, CommentActivity::class.java)
+            intent.putExtra("permalink", url)
             startActivity(intent)
         }
     }

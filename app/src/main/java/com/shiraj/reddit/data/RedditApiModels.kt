@@ -35,11 +35,12 @@ class RedditNewsDataResponse(
     val created: Long,
     val thumbnail: String,
     val url: String?,
-    val permalink: String?
+    val permalink: String?,
+    val body: String?
 
 
 ) {
     override fun toString(): String {
-        return "RedditNewsDataResponse(author='$author', title='$title', num_comments=$num_comments, created=$created, thumbnail='$thumbnail', url=$url, permalink=$permalink)"
+        return "RedditNewsDataResponse(author='$author', title='$title', num_comments=$num_comments, created=$created, thumbnail='$thumbnail', url=$url, permalink=$permalink, body=$body)"
     }
 }

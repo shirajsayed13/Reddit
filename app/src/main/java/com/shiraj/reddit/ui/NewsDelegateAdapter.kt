@@ -37,7 +37,7 @@ class NewsDelegateAdapter(val viewActions: onViewSelectedListener) : ViewTypeDel
             author.text = item.author
             comments.text = "${item.numComments} comments"
 
-            super.itemView.setOnClickListener { viewActions.onItemSelected(item.url)}
+            super.itemView.setOnClickListener { viewActions.onItemSelected(item.permalink)}
         }
     }
 }

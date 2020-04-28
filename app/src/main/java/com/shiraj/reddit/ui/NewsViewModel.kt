@@ -7,6 +7,7 @@ import com.shiraj.reddit.data.*
 import com.shiraj.reddit.di.module.NetworkModule
 import com.shiraj.reddit.di.module.RetrofitService
 import com.shiraj.reddit.ui.login.ui.login.LoginActivity
+import com.shiraj.reddit.util.Logger
 import com.shiraj.reddit.util.Resource
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,9 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class NewsViewModel @Inject constructor(
-    private val api: RedditApi
-) : ViewModel() {
+class NewsViewModel @Inject constructor() : ViewModel() {
 
     val newsState: MutableLiveData<Resource> = MutableLiveData()
 
@@ -50,7 +49,7 @@ class NewsViewModel @Inject constructor(
         val news = dataResponse?.children?.map {
             val item = it.data
             RedditNewsItem(item.author, item.title, item.num_comments,
-                item.created, item.thumbnail, item.url, item.permalink)
+                item.created, item.thumbnail, item.url, item.permalink, item.body)
         }
         return RedditNews(
             dataResponse?.after.orEmpty(),
