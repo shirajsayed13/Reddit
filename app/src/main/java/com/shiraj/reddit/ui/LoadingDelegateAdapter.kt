@@ -2,8 +2,8 @@ package com.shiraj.reddit.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.shiraj.reddit.util.extensions.inflate
 import com.shiraj.reddit.R
+import com.shiraj.reddit.util.extensions.inflate
 
 class LoadingDelegateAdapter : ViewTypeDelegateAdapter {
 
@@ -13,5 +13,6 @@ class LoadingDelegateAdapter : ViewTypeDelegateAdapter {
     }
 
     class LoadingViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
-            parent.inflate(R.layout.item_loading))
+        parent.inflate(R.layout.item_loading)
+    )
 }

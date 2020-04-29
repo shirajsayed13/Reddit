@@ -24,7 +24,8 @@ class NewsDelegateAdapter(val viewActions: onViewSelectedListener) : ViewTypeDel
     }
 
     inner class NewsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
-            parent.inflate(R.layout.item_news)) {
+        parent.inflate(R.layout.item_news)
+    ) {
 
         private val imgThumbnail = itemView.img_thumbnail
         private val description = itemView.description
@@ -37,7 +38,7 @@ class NewsDelegateAdapter(val viewActions: onViewSelectedListener) : ViewTypeDel
             author.text = item.author
             comments.text = "${item.numComments} comments"
 
-            super.itemView.setOnClickListener { viewActions.onItemSelected(item.permalink)}
+            super.itemView.setOnClickListener { viewActions.onItemSelected(item.permalink) }
         }
     }
 }

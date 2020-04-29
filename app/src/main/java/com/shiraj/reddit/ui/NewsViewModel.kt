@@ -3,7 +3,7 @@ package com.shiraj.reddit.ui
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shiraj.reddit.data.*
+import com.shiraj.reddit.data.RedditApi
 import com.shiraj.reddit.data.news.RedditNews
 import com.shiraj.reddit.data.news.RedditNewsItem
 import com.shiraj.reddit.data.news.RedditNewsResponse

@@ -1,7 +1,7 @@
 package com.shiraj.reddit.util
 
-import com.shiraj.reddit.data.news.RedditNews
 import com.shiraj.reddit.data.comment.RedditComment
+import com.shiraj.reddit.data.news.RedditNews
 
 sealed class Resource {
     class Success(val redditNews: RedditNews) : Resource()

@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shiraj.reddit.data.news.RedditNewsItem
 import java.util.*
 
-class NewsAdapter(listener: NewsDelegateAdapter.onViewSelectedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewsAdapter(listener: NewsDelegateAdapter.onViewSelectedListener) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<ViewType>
     private var delegateAdapters = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -53,9 +54,9 @@ class NewsAdapter(listener: NewsDelegateAdapter.onViewSelectedListener) : Recycl
     }
 
     fun getNews(): List<RedditNewsItem> =
-            items
-                .filter { it.getViewType() == AdapterConstants.NEWS }
-                .map { it as RedditNewsItem }
+        items
+            .filter { it.getViewType() == AdapterConstants.NEWS }
+            .map { it as RedditNewsItem }
 
 
     private fun getLastPosition() = if (items.lastIndex == -1) 0 else items.lastIndex

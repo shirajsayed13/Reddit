@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             fragmentTransaction.commit()
         }
     }
+
     override fun onBackPressed() {
         val fragmentManager = supportFragmentManager
         if (fragmentManager.backStackEntryCount > 1) {

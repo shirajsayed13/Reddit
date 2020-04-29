@@ -1,6 +1,8 @@
 package com.shiraj.reddit.ui
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -107,6 +109,16 @@ class NewsFragment : Fragment(), NewsDelegateAdapter.onViewSelectedListener {
     }
 
     private fun requestNews() {
-        newsViewModel.fetchNews(redditNews?.after.orEmpty())
+        if (isNetworkConnected()) {
+            newsViewModel.fetchNews(redditNews?.after.orEmpty())
+        } else {
+            Toast.makeText(context, "No NetWork Connectivity", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun isNetworkConnected(): Boolean {
+        val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = cm.activeNetworkInfo
+        return activeNetwork?.isConnected ?: false
     }
 }

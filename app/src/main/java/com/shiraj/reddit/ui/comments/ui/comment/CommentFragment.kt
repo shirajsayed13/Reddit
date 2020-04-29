@@ -1,5 +1,7 @@
 package com.shiraj.reddit.ui.comments.ui.comment
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -57,8 +59,10 @@ class CommentFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CommentViewModel::class.java)
         val permalink = arguments?.getString("permalink")
         val updatedPermalink = permalink?.substring(1)
-        if (updatedPermalink != null) {
+        if (isNetworkConnected() && updatedPermalink != null) {
             viewModel.fetchComments(updatedPermalink)
+        } else {
+            Toast.makeText(context, "No NetWork Connectivity", Toast.LENGTH_LONG).show()
         }
         viewModel.newsState.observe(viewLifecycleOwner, Observer {
             manageState(it)
@@ -91,5 +95,11 @@ class CommentFragment : Fragment() {
 
         comment_list.adapter = commentsAdapter
         comment_list.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+    }
+
+    private fun isNetworkConnected(): Boolean {
+        val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = cm.activeNetworkInfo
+        return activeNetwork?.isConnected ?: false
     }
 }

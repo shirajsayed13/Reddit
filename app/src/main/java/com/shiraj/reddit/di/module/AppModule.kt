@@ -5,7 +5,7 @@ import android.content.Context
 import com.shiraj.reddit.RedditApplication
 import dagger.Module
 import dagger.Provides
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 import kotlin.coroutines.CoroutineContext
 

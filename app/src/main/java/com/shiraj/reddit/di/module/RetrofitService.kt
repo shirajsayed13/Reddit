@@ -2,7 +2,6 @@ package com.shiraj.reddit.di.module
 
 import com.shiraj.reddit.BuildConfig
 import com.shiraj.reddit.util.Constants
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,10 +20,10 @@ object RetrofitService {
                 OkHttpClient.Builder()
                     .addInterceptor(
                         HttpLoggingInterceptor()
-                        .apply {
-                            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-                            else HttpLoggingInterceptor.Level.NONE
-                        })
+                            .apply {
+                                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                                else HttpLoggingInterceptor.Level.NONE
+                            })
                     .readTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
                     .writeTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
                     .build()

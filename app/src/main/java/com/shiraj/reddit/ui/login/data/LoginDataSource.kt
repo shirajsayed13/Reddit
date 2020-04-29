@@ -17,7 +17,7 @@ class LoginDataSource() {
     fun login(username: String, password: String): Result<LoggedInUser> {
         try {
             loginAPICall(username, password)
-            return Result.Success(LoggedInUser("Shiraj","ShirajSayed"))
+            return Result.Success(LoggedInUser("", ""))
 
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))
@@ -27,7 +27,7 @@ class LoginDataSource() {
     fun logout() {
     }
 
-    fun loginAPICall(username: String, password: String) {
+    private fun loginAPICall(username: String, password: String) {
         val authAPI: AuthAPI = RetrofitService.provideRetrofit().create(AuthAPI::class.java)
 
         val headerMap =

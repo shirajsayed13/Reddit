@@ -1,6 +1,7 @@
 package com.shiraj.reddit.data.news
 
-class RedditNewsResponse(val data: RedditDataResponse
+class RedditNewsResponse(
+    val data: RedditDataResponse
 
 ) {
     override fun toString(): String {
@@ -20,7 +21,8 @@ class RedditDataResponse(
     }
 }
 
-class RedditChildrenResponse(val data: RedditNewsDataResponse
+class RedditChildrenResponse(
+    val data: RedditNewsDataResponse
 
 ) {
     override fun toString(): String {

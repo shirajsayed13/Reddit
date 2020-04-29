@@ -6,4 +6,4 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 inline fun <reified T : ViewModel> Fragment.getViewModel(viewModelFactory: ViewModelProvider.Factory): T =
-        ViewModelProviders.of(this, viewModelFactory)[T::class.java]
+    ViewModelProviders.of(this, viewModelFactory)[T::class.java]
