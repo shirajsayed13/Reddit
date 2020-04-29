@@ -3,6 +3,7 @@ package com.shiraj.reddit.ui.comments.ui.comment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.shiraj.reddit.R
 import com.shiraj.reddit.RedditApplication
 import com.shiraj.reddit.data.comment.RedditComment
-import com.shiraj.reddit.util.Logger
 import com.shiraj.reddit.util.Resource
 import com.shiraj.reddit.util.ViewModelFactory
 import com.shiraj.reddit.util.extensions.androidLazy
@@ -71,7 +71,10 @@ class CommentFragment : Fragment() {
         when (state) {
             is Resource.SuccessComment -> {
                 redditComment = state.redditComment
-                state.redditComment.comments?.let { commentsAdapter.addComments(it) }
+                state.redditComment.comments?.let {
+                    commentsAdapter.addComments(it)
+                    progress_bar.visibility = GONE
+                }
             }
             is Resource.Error -> {
                 Toast.makeText(context, "Error Occurred", Toast.LENGTH_LONG).show()
