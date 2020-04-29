@@ -1,28 +1,40 @@
 package com.shiraj.reddit.data.comment
 
-data class RedditCommentResponse(
+class RedditCommentResponse(
     val data: RedditDataResponse
 
-)
+) {
+    override fun toString(): String {
+        return "RedditCommentResponse(data=$data)"
+    }
+}
 
-data class RedditDataResponse(
+class RedditDataResponse(
     val children: List<RedditChildrenCommentResponse>,
     val after: String?,
     val before: String?
-)
+) {
+    override fun toString(): String {
+        return "RedditDataResponse(children=$children, after=$after, before=$before)"
+    }
+}
 
 
-data class RedditChildrenCommentResponse(
+class RedditChildrenCommentResponse(
     val data: RedditCommentDataResponse
 
-)
+) {
+    override fun toString(): String {
+        return "RedditChildrenCommentResponse(data=$data)"
+    }
+}
 
-data class RedditCommentDataResponse(
+class RedditCommentDataResponse(
     val body: String,
     val author: String
-)
 
-data class RedditCommentReplies(
-    val data: RedditCommentResponse
-
-)
+) {
+    override fun toString(): String {
+        return "RedditCommentDataResponse(body='$body', author='$author')"
+    }
+}

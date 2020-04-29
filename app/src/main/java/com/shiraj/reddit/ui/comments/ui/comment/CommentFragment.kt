@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.shiraj.reddit.R
 import com.shiraj.reddit.RedditApplication
 import com.shiraj.reddit.data.comment.RedditComment
+import com.shiraj.reddit.util.Logger
 import com.shiraj.reddit.util.Resource
 import com.shiraj.reddit.util.ViewModelFactory
 import com.shiraj.reddit.util.extensions.androidLazy
@@ -56,7 +57,7 @@ class CommentFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         RedditApplication.appComponent.inject(this)
         viewModel = ViewModelProviders.of(this).get(CommentViewModel::class.java)
-        viewModel.fetchComments("/r/news/comments/g94vfg/leader_of_north_carolina_lockdown_protest_group/")
+        viewModel.fetchComments("r/news/comments/g94vfg/leader_of_north_carolina_lockdown_protest_group/")
         viewModel.newsState.observe(viewLifecycleOwner, Observer {
             manageState(it)
         })
@@ -68,7 +69,7 @@ class CommentFragment : Fragment() {
         when (state) {
             is Resource.SuccessComment -> {
                 redditComment = state.redditComment
-                state.redditComment.news?.let { commentsAdapter.addComments(it) }
+                state.redditComment.comments?.let { commentsAdapter.addComments(it) }
             }
             is Resource.Error -> {
                 Toast.makeText(context, "Error Occurred", Toast.LENGTH_LONG).show()

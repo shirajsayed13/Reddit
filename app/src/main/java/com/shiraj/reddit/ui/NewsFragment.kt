@@ -89,6 +89,21 @@ class NewsFragment : Fragment(), NewsDelegateAdapter.onViewSelectedListener {
         }
 
         news_list.adapter = newsAdapter
+
+        if (savedInstanceState != null && savedInstanceState.containsKey(KEY_REDDIT_NEWS)) {
+            redditNews = savedInstanceState.get(KEY_REDDIT_NEWS) as RedditNews
+            redditNews?.news?.let { newsAdapter.clearAndAddNews(it) }
+        } else {
+            requestNews()
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val news = newsAdapter.getNews()
+        if (redditNews != null && news.isNotEmpty()) {
+            outState.putParcelable(KEY_REDDIT_NEWS, redditNews?.copy(news = news))
+        }
     }
 
     private fun requestNews() {

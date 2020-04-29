@@ -13,7 +13,7 @@ class CommentActivity : AppCompatActivity() {
         val stringExtra = intent.getStringExtra("permalink")
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container_comment, CommentFragment.newInstance(stringExtra))
+                .replace(R.id.container_comment, CommentFragment.newInstance())
                 .commitNow()
         }
     }

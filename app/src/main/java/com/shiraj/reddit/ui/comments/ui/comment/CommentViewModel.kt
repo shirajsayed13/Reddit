@@ -22,15 +22,16 @@ class CommentViewModel @Inject constructor(): ViewModel() {
     val newsState: MutableLiveData<Resource> = MutableLiveData()
 
     fun fetchComments(permalink: String) {
-        val newsAPI: RedditApi = RetrofitService.provideRetrofit().create(RedditApi::class.java)
+        val commentAPI: RedditApi = RetrofitService.provideRetrofit().create(RedditApi::class.java)
 
-        newsAPI.getComments(permalink)
+        commentAPI.getComments(permalink)
             .enqueue(object : Callback<List<RedditCommentResponse>> {
                 override fun onResponse(
                     call: Call<List<RedditCommentResponse>>,
                     response: Response<List<RedditCommentResponse>>
                 ) {
                     val dataResponse = response.body()
+                    Logger.dt("CHECK THIS VALUE dataResponse commentAPI ${dataResponse.toString()}")
                     val comments = process(dataResponse)
                     newsState.postValue(Resource.SuccessComment(comments))
                 }

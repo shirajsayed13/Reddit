@@ -6,7 +6,7 @@ import android.os.Parcelable
 data class RedditComment(
     val after: String?,
     val before: String?,
-    val news: List<RedditCommentItem>?
+    val comments: List<RedditCommentItem>?
 ) : Parcelable {
     companion object {
         @Suppress("unused")
@@ -28,7 +28,7 @@ data class RedditComment(
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         dest?.writeString(after)
         dest?.writeString(before)
-        dest?.writeTypedList(news)
+        dest?.writeTypedList(comments)
     }
 }
 
