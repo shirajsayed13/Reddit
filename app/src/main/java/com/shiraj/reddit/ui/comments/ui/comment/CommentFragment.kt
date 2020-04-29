@@ -24,8 +24,6 @@ import javax.inject.Inject
 class CommentFragment : Fragment() {
 
     companion object {
-        fun newInstance() = CommentFragment()
-
         fun newInstance(name: String): CommentFragment {
             val args = Bundle()
             args.putString("permalink", name)
@@ -57,7 +55,11 @@ class CommentFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         RedditApplication.appComponent.inject(this)
         viewModel = ViewModelProviders.of(this).get(CommentViewModel::class.java)
-        viewModel.fetchComments("r/news/comments/g94vfg/leader_of_north_carolina_lockdown_protest_group/")
+        val permalink = arguments?.getString("permalink")
+        val updatedPermalink = permalink?.substring(1)
+        if (updatedPermalink != null) {
+            viewModel.fetchComments(updatedPermalink)
+        }
         viewModel.newsState.observe(viewLifecycleOwner, Observer {
             manageState(it)
         })
