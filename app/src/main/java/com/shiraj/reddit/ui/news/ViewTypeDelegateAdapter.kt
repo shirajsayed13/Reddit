@@ -1,8 +1,7 @@
-package com.shiraj.reddit.ui.login.news
+package com.shiraj.reddit.ui.news
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.shiraj.reddit.ui.login.news.ViewType
 
 interface ViewTypeDelegateAdapter {
 

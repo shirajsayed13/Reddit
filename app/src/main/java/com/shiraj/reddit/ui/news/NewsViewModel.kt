@@ -1,4 +1,4 @@
-package com.shiraj.reddit.ui.login.news
+package com.shiraj.reddit.ui.news
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

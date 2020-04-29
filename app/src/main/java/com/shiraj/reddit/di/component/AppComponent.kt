@@ -3,7 +3,7 @@ package com.shiraj.reddit.di.component
 import com.shiraj.reddit.di.module.AppModule
 import com.shiraj.reddit.di.module.NetworkModule
 import com.shiraj.reddit.di.module.NewsModule
-import com.shiraj.reddit.ui.login.news.NewsFragment
+import com.shiraj.reddit.ui.news.NewsFragment
 import com.shiraj.reddit.ui.comments.ui.comment.CommentFragment
 import dagger.Component
 import javax.inject.Singleton
