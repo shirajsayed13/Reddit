@@ -2,8 +2,8 @@ package com.shiraj.reddit.data.news
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.shiraj.reddit.ui.AdapterConstants
-import com.shiraj.reddit.ui.ViewType
+import com.shiraj.reddit.ui.login.news.AdapterConstants
+import com.shiraj.reddit.ui.login.news.ViewType
 
 data class RedditNews(
     val after: String?,

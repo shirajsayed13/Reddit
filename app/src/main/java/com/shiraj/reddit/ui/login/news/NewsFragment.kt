@@ -1,4 +1,4 @@
-package com.shiraj.reddit.ui
+package com.shiraj.reddit.ui.login.news
 
 import android.content.Context
 import android.content.Intent
@@ -41,7 +41,11 @@ class NewsFragment : Fragment(), NewsDelegateAdapter.onViewSelectedListener {
     }
 
     private var redditNews: RedditNews? = null
-    private val newsAdapter by androidLazy { NewsAdapter(this) }
+    private val newsAdapter by androidLazy {
+        NewsAdapter(
+            this
+        )
+    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory<NewsViewModel>

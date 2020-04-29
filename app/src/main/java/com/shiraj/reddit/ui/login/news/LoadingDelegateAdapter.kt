@@ -1,13 +1,17 @@
-package com.shiraj.reddit.ui
+package com.shiraj.reddit.ui.login.news
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shiraj.reddit.R
 import com.shiraj.reddit.util.extensions.inflate
 
-class LoadingDelegateAdapter : ViewTypeDelegateAdapter {
+class LoadingDelegateAdapter :
+    ViewTypeDelegateAdapter {
 
-    override fun onCreateViewHolder(parent: ViewGroup) = LoadingViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup) =
+        LoadingViewHolder(
+            parent
+        )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
     }

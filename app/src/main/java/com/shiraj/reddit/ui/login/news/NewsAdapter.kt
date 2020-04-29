@@ -1,4 +1,4 @@
-package com.shiraj.reddit.ui
+package com.shiraj.reddit.ui.login.news
 
 import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
@@ -16,8 +16,12 @@ class NewsAdapter(listener: NewsDelegateAdapter.onViewSelectedListener) :
     }
 
     init {
-        delegateAdapters.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
-        delegateAdapters.put(AdapterConstants.NEWS, NewsDelegateAdapter(listener))
+        delegateAdapters.put(AdapterConstants.LOADING,
+            LoadingDelegateAdapter()
+        )
+        delegateAdapters.put(AdapterConstants.NEWS,
+            NewsDelegateAdapter(listener)
+        )
         items = ArrayList()
         items.add(loadingItem)
     }

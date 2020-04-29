@@ -1,4 +1,4 @@
-package com.shiraj.reddit.ui
+package com.shiraj.reddit.ui.login.news
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +8,8 @@ import com.shiraj.reddit.util.extensions.inflate
 import com.shiraj.reddit.util.extensions.loadImg
 import kotlinx.android.synthetic.main.item_news.view.*
 
-class NewsDelegateAdapter(val viewActions: onViewSelectedListener) : ViewTypeDelegateAdapter {
+class NewsDelegateAdapter(val viewActions: onViewSelectedListener) :
+    ViewTypeDelegateAdapter {
 
     interface onViewSelectedListener {
         fun onItemSelected(url: String?)
