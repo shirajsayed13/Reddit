@@ -3,7 +3,7 @@ package com.shiraj.reddit.ui
 import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.shiraj.reddit.data.RedditNewsItem
+import com.shiraj.reddit.data.news.RedditNewsItem
 import java.util.*
 
 class NewsAdapter(listener: NewsDelegateAdapter.onViewSelectedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

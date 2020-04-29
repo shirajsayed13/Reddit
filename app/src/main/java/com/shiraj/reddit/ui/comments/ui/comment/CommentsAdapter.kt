@@ -3,15 +3,11 @@ package com.shiraj.reddit.ui.comments.ui.comment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shiraj.reddit.R
-import com.shiraj.reddit.data.RedditNewsItem
-import com.shiraj.reddit.data.comment.RedditCommentDataResponse
 import com.shiraj.reddit.data.comment.RedditCommentItem
-import com.shiraj.reddit.ui.ViewType
-import java.util.ArrayList
+import java.util.*
 
 class CommentsAdapter :
     RecyclerView.Adapter<CommentsAdapter.CommentViewHolder>() {

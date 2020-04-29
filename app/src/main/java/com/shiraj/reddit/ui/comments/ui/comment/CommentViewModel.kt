@@ -4,9 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shiraj.reddit.data.RedditApi
-import com.shiraj.reddit.data.RedditNews
-import com.shiraj.reddit.data.RedditNewsItem
-import com.shiraj.reddit.data.RedditNewsResponse
 import com.shiraj.reddit.data.comment.*
 import com.shiraj.reddit.di.module.RetrofitService
 import com.shiraj.reddit.ui.login.ui.login.LoginActivity

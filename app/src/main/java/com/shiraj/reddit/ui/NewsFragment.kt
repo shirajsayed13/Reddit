@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shiraj.reddit.R
 import com.shiraj.reddit.RedditApplication
-import com.shiraj.reddit.data.RedditNews
+import com.shiraj.reddit.data.news.RedditNews
 import com.shiraj.reddit.ui.comments.CommentActivity
 import com.shiraj.reddit.util.InfiniteScrollListener
 import com.shiraj.reddit.util.Resource

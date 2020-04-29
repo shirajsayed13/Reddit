@@ -3,7 +3,7 @@ package com.shiraj.reddit.ui
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shiraj.reddit.R
-import com.shiraj.reddit.data.RedditNewsItem
+import com.shiraj.reddit.data.news.RedditNewsItem
 import com.shiraj.reddit.util.extensions.inflate
 import com.shiraj.reddit.util.extensions.loadImg
 import kotlinx.android.synthetic.main.item_news.view.*

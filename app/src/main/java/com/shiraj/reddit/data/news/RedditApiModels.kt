@@ -1,4 +1,4 @@
-package com.shiraj.reddit.data
+package com.shiraj.reddit.data.news
 
 class RedditNewsResponse(val data: RedditDataResponse
 

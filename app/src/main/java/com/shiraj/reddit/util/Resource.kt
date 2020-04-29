@@ -1,6 +1,6 @@
 package com.shiraj.reddit.util
 
-import com.shiraj.reddit.data.RedditNews
+import com.shiraj.reddit.data.news.RedditNews
 import com.shiraj.reddit.data.comment.RedditComment
 
 sealed class Resource {

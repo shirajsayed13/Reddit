@@ -1,10 +1,9 @@
-package com.shiraj.reddit.data
+package com.shiraj.reddit.data.news
 
 import android.os.Parcel
 import android.os.Parcelable
 import com.shiraj.reddit.ui.AdapterConstants
 import com.shiraj.reddit.ui.ViewType
-import java.util.ArrayList
 
 data class RedditNews(
         val after: String?,
@@ -13,7 +12,8 @@ data class RedditNews(
     companion object {
         @Suppress("unused")
         @JvmField val CREATOR: Parcelable.Creator<RedditNews> = object : Parcelable.Creator<RedditNews> {
-            override fun createFromParcel(source: Parcel): RedditNews = RedditNews(source)
+            override fun createFromParcel(source: Parcel): RedditNews =
+                RedditNews(source)
             override fun newArray(size: Int): Array<RedditNews?> = arrayOfNulls(size)
         }
     }
@@ -46,7 +46,8 @@ data class RedditNewsItem(
 
     companion object {
         @JvmField val CREATOR: Parcelable.Creator<RedditNewsItem> = object : Parcelable.Creator<RedditNewsItem> {
-            override fun createFromParcel(source: Parcel): RedditNewsItem = RedditNewsItem(source)
+            override fun createFromParcel(source: Parcel): RedditNewsItem =
+                RedditNewsItem(source)
             override fun newArray(size: Int): Array<RedditNewsItem?> = arrayOfNulls(size)
         }
     }
